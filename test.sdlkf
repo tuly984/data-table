@@ -1,0 +1,84 @@
+"dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+
+  
+import './App.css';
+import { Table } from 'antd';
+
+
+function App() {
+  const data = [
+    {
+      name:'Name 1',
+      age:'10',
+      address:'Address 1',
+      key:'1'
+    },
+    {
+      name:'Name 2',
+      age:'20',
+      address:'Address 2',
+      key:'2'
+    },
+    {
+      name:'Name 3',
+      age:'30',
+      address:'Address 3',
+      key:'3'
+    },
+  ];
+
+  const columns = [
+    {
+      title:'Name',
+      dataIndex:'name',
+      key:'key',
+      render: name =>{
+        return <a>{name}</a>
+      }
+    },
+    {
+      title:'Age',
+      dataIndex:'age',
+      key:'key',
+      sorter: (a,b) => a.age -b.age
+    },
+    {
+      title:'Address',
+      dataIndex:'address',
+      key:'key'
+    
+    },
+    
+  ];
+   return (
+     <div className="App">
+       <header className="App-header">
+         <Table
+
+         dataSource={data}
+         columns={columns}
+         >
+          
+         </Table>
+     
+     
+       </header>
+     </div>
+   );
+}
+
+export default App;
